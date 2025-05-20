@@ -39,7 +39,7 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
   -  **Gestionar Turnos** para eliminar, modificar o registrar turno manualmente.
   -  **Gestionar Reportes** para eliminar, modificar o realizar un reporte, manualmente.
 - También puede acceder a **Consultar Turno** y **Reporte de Turnos**.
-
+---
 ## 🔗 Relaciones entre Casos de Uso
 
 ### ✅ **`<<include>>`** 
