@@ -142,10 +142,101 @@ Cuando un usuario reserva un turno similar a uno anterior (por ejemplo, misma ca
 ---
 
 ### ✅ **Adapter**
-📌 **Uso:** Convierte una interfaz de un servicio externo para que se integre con el sistema.
+📌 **Uso:** Convierte una interfaz de un servicio externo para que se integre con el sistema `AdaptadorNotificador` y `AdaptadorReportePDF`.
 
 📌 **Ejemplo en TUNOMATICO:**  
 El sistema se adapta a una API de notificaciones que permite enviar recordatorios de turnos programados, asegurando que los clientes no olviden sus citas.
 
 ---
+
+
+
+# 📌 Diagrama de Implementacion 
+
+## 🏗️ **Arquitectura del Sistema**
+El sistema está dividido en módulos organizados en distintas capas: **Cliente**, **Servidor Web**, **Base de Datos** y **Servicios Externos**, asegurando una separación clara de responsabilidades.
+
+## 📌 **Componentes Principales**
+### ✅ **Cliente**
+Interfaz de usuario y administrador para interactuar con el sistema.
+- `Interfaz Tunomatico` → Plataforma para que los usuarios gestionen sus turnos.
+- `Interfaz Administrador` → Permite a los administradores gestionar usuarios, turnos y reportes.
+
+### ✅ **Servidor Web**
+Centro de operaciones del sistema que gestiona la lógica y la comunicación con la base de datos.
+- `Servicio de Gestión de Turnos` → Procesa la creación, modificación y cancelación de turnos.
+- `Servicio de Gestión de Usuarios` → Administra cuentas de usuario y autenticación.
+- `GestorTurnos` (**Singleton**) → Controla la gestión única de turnos.
+- `GestorReportes` (**Singleton**) → Encargado de la generación de reportes.
+- `Controlador de Usuario` → Maneja la interacción entre el cliente y los servicios del sistema.
+- `Servicio de Autenticación de Usuarios` → Valida credenciales para el acceso al sistema.
+
+### ✅ **Administrador**
+Módulo encargado de la supervisión y gestión del sistema de turnos.
+- `Interfaz Administrador` → Se comunica con `GestorTurnos` para administrar turnos.
+- `Administrador` → Gestiona usuarios, turnos y reportes.
+- `Servicio de Gestión de Turnos` → Permite modificar o eliminar turnos asignados a los usuarios.
+- `GestorReportes` → Permite generar informes de gestión sobre la actividad en el sistema.
+
+📌 **Ejemplo en TUNOMATICO:**  
+Un administrador revisa los turnos asignados del día y elimina aquellos que fueron cancelados por los usuarios, asegurando que no haya conflictos en la planificación.
+
+### ✅ **Base de Datos**
+Almacena la información de usuarios, turnos y reportes.
+- `BD Usuarios` → Registra credenciales y datos de usuarios.
+- `BD Turnos` → Guarda los turnos registrados.
+- `BD Reportes` → Almacena informes generados por el sistema.
+
+### ✅ **Servicios Externos**
+Interfaces de terceros integradas con **TUNOMATICO** para mejorar la funcionalidad.
+- `API de Notificaciones` → Servicio externo para enviar alertas de turnos.
+- `Exportador PDF` → Biblioteca para generar reportes en formato PDF.
+
+---
+
+## 🔗 **Relaciones Entre Componentes**
+
+### ✅ **Interacción entre Cliente, Administrador y Servidor**
+📌 **Objetivo:** Permitir que los usuarios y administradores interactúen con el sistema.
+
+- `Interfaz Tunomatico` → se comunica con `Controlador de Usuario` para acceder a funciones.
+- `Interfaz Administrador` → consulta `GestorTurnos` y `GestorReportes` para gestionar turnos y reportes.
+
+📌 **Ejemplo en TUNOMATICO:**  
+Un administrador accede a **TUNOMATICO**, revisa los reportes generados en el día y ajusta la planificación de turnos para la próxima jornada.
+
+---
+
+### ✅ **Relación entre Servicios del Servidor Web**
+📌 **Objetivo:** Mantener modularidad en la gestión de turnos y usuarios.
+
+- `Controlador de Usuario` → usa `Servicio de Gestión de Usuarios` para manejar autenticación.
+- `Servicio de Gestión de Turnos` → usa `GestorTurnos` para registrar turnos.
+
+📌 **Ejemplo en TUNOMATICO:**  
+Cuando un administrador gestiona turnos de usuarios, **GestorTurnos** le permite visualizar la disponibilidad y realizar ajustes.
+
+---
+
+### ✅ **Patrones de Diseño Implementados**
+
+#### **🔹 Singleton**
+📌 **Aplicado a:** `GestorTurnos` y `GestorReportes` para garantizar una única instancia de gestión.  
+📌 **Ejemplo en TUNOMATICO:**  
+El sistema tiene un solo **Gestor de Turnos**, centralizando todas las reservas en una sola instancia para evitar conflictos de horarios y duplicaciones en los turnos.
+
+#### **🔹 Prototype**
+📌 **Aplicado a:** `Entidad Turno`, permitiendo la clonación de turnos.  
+📌 **Ejemplo en TUNOMATICO:**  
+Cuando un usuario agenda turnos recurrentes (como consultas médicas mensuales), el sistema clona el formato anterior.
+
+#### **🔹 Adapter**
+📌 **Aplicado a:** `AdaptadorNotificador` y `AdaptadorReportePDF` para conectarse con servicios externos.  
+📌 **Ejemplo en TUNOMATICO:**  
+El **Adaptador Notificador** convierte las alertas del sistema en mensajes compatibles con **API de Notificaciones**, enviando recordatorios automáticos a los usuarios.
+
+---
+
+
+
 
