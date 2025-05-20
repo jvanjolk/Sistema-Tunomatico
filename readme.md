@@ -14,15 +14,14 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 ---
 
 
-# 🔹 1. Diagrama de Casos de Uso UML
+# 📌 1. Diagrama de Casos de Uso UML
 
 
-## 🧑‍💻 Actores del Sistema
+## 🧑‍💻 Actores Presentes en el Caso de Uso
 
 - **Usuario**: Puede registrarse, iniciar sesión y gestionar turnos.
 - **Administrador**: Tiene permisos avanzados para gestionar usuarios, turnos y reportes.
 
-## ⚙️ Casos de Uso Principales
 
 ### 🔹 Funciones del Usuario
 -  **Registrarse** y **Iniciar sesión** en la plataforma.
@@ -32,9 +31,9 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 
 ### 🔹 Funciones del Administrador
 -  **Acceso Administrativo**, desde donde puede:
-  -  **Gestionar Usuarios**
-  -  **Gestionar Turnos**
-  -  **Gestionar Reportes**
+  -  **Gestionar Usuarios** para eliminar, modificar o añadir usuarios manualmente.
+  -  **Gestionar Turnos** para eliminar, modificar o registrar turno manualmente.
+  -  **Gestionar Reportes** para eliminar, modificar o realizar un reporte, manualmente.
 - También puede acceder a **Consultar Turno** y **Reporte de Turnos**.
 
 ## 🔗 Relaciones entre Casos de Uso
@@ -52,7 +51,10 @@ Cuando una acción requiere otra para completarse:
 Cuando una funcionalidad se habilita bajo ciertas condiciones:
 -  ` **Acceso Administrativo** → extiende:
   -  **Gestionar Usuarios**
+    _(el administrador puede ingresar a gestionar uno o más usuarios cada que sea pertinente o ocurra un caso especial)._
   -  **Gestionar Turnos**
+    _(el administrador puede ingresar a gestionar uno o más turnos cada que sea pertinente o ocurra un caso especial)._
   -  **Gestionar Reportes**
+    _(el administrador puede ingresar a gestionar uno o más reportes cada que sea pertinente o ocurra un caso especial)._
   _(El administrador puede realizar estas funciones después de autenticarse)._
 
