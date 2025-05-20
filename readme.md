@@ -39,16 +39,16 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 
 ## 🔗 Relaciones entre Casos de Uso
 
-### ✅ **`include` 
+### ✅ **`<<include>>`** 
 Cuando una acción requiere otra para completarse:
 -  **Registrar Turno** → incluye →  **Consultar Turno**  
   _(Es necesario verificar los turnos existentes al registrar uno nuevo)._
-- `R4` **Cancelar Turno** → incluye → `R7` **Notificación de Turno**  
+-  **Cancelar Turno** → incluye →  **Notificación de Turno**  
   _(Se envía una notificación tras la cancelación)._
-- `R3` **Registrar Turno** → incluye → `R7` **Notificación de Turno**  
+- **Registrar Turno** → incluye →  **Notificación de Turno**  
   _(El usuario recibe una confirmación al registrar un turno)._
 
-### ✅ **`extend` 
+### ✅ **`<<extend>>`** 
 Cuando una funcionalidad se habilita bajo ciertas condiciones:
 -  ` **Acceso Administrativo** → extiende:
   -  **Gestionar Usuarios**
