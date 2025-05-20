@@ -178,7 +178,7 @@ Centro de operaciones del sistema que gestiona la lógica y la comunicación con
 ---
 ### ✅ **Administrador**
 Módulo encargado de la supervisión y gestión del sistema de turnos.
-- `Interfaz Administrador` → Se comunica con `GestorTurnos` para administrar turnos.
+- `Interfaz Administrador` → para que el administrador accesa a sus permisos administrativos, para gestionar el sistema o generar un reporte. Se comunica con `GestorTurnos` para administrar turnos.
 - `Administrador` → Gestiona usuarios, turnos y reportes.
 - `Servicio de Gestión de Turnos` → Permite modificar o eliminar turnos asignados a los usuarios.
 - `GestorReportes` → Permite generar informes de gestión sobre la actividad en el sistema.
