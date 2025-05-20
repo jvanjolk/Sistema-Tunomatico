@@ -26,7 +26,9 @@ Ademas, cabe recalcar que este Sistema fue diseñado para variables casos para u
 
 - **Usuario**: Puede registrarse, iniciar sesión y gestionar turnos.
 - **Administrador**: Tiene permisos avanzados para gestionar usuarios, turnos y reportes.
+  
 ---
+
 ### 🔹 Funciones del Usuario
 -  **Registrarse** y **Iniciar sesión** en la plataforma.
 -  **Registrar Turno** y  **Cancelar Turno** cuando sea necesario.
@@ -40,10 +42,13 @@ Ademas, cabe recalcar que este Sistema fue diseñado para variables casos para u
   -  **Gestionar Reportes** para eliminar, modificar o realizar un reporte, manualmente.
 - También puede acceder a **Consultar Turno** y **Reporte de Turnos** desde donde puede:
   - **Consultar Turno** para una gestion de estos, ya sea ver turnos cancelados u que estan operativos y llevar un orden dentro del sistema y lugar de atencion que se aplique este sistema de turnos
+
 ---
+
+
 ## 🔗 Relaciones entre Casos de Uso
 
-### ✅ **`<<include>>`** 
+### 🔹 **`<<include>>`** 
 Cuando una acción requiere otra para completarse:
 -  **Registrar Turno** → incluye →  **Consultar Turno**  
   _(Es necesario verificar los turnos existentes al registrar uno nuevo)._
@@ -52,7 +57,7 @@ Cuando una acción requiere otra para completarse:
 - **Registrar Turno** → incluye →  **Notificación de Turno**  
   _(El usuario recibe una confirmación al registrar un turno)._
 
-### ✅ **`<<extend>>`** 
+### 🔹 **`<<extend>>`** 
 Cuando una funcionalidad se habilita bajo ciertas condiciones:
 -  **Acceso Administrativo** → extiende:
   -  **Gestionar Usuarios**
@@ -79,9 +84,10 @@ Cuando una funcionalidad se habilita bajo ciertas condiciones:
 
 Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interactúan las clases y por qué se han aplicado estos patrones de diseño. También se incluyen ejemplos basados en la gestión de turnos dentro del propio sistema.
 
+
 ## 🔗 **Relaciones Entre Clases**
 
-### ✅ **Asociación: Relación Directa Entre Entidades**
+### 🔗 **Asociación: Relación Directa Entre Entidades**
 📌 **Uso:** Modela la interacción natural entre dos clases sin dependencia rígida.
 
 - `Usuario` → tiene múltiples `Turno`  
@@ -93,7 +99,7 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 
 ---
 
-### ✅ **Dependencia: Una Clase Usa a Otra Como Función**
+### 🔗 **Dependencia: Una Clase Usa a Otra Como Función**
 📌 **Uso:** Una clase necesita otra para realizar una tarea, pero no es propietaria de ella.
 
 - `GestorTurnos` → depende de `Turno` para gestionar la asignación de turnos.  
@@ -103,7 +109,8 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 
 ---
 
-### ✅ **Uso de Interfaces (`Notificador`, `ExportadorReporte`)**
+
+### 🔗 **Uso de Interfaces (`Notificador`, `ExportadorReporte`)**
 📌 **Uso:** Permite desacoplar las implementaciones concretas y hacerlas intercambiables.
 
 - `GestorTurnos` → usa `Notificador` para enviar alertas a los usuarios sobre sus turnos.  
@@ -113,7 +120,8 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 
 ---
 
-### ✅ **Adaptador (`Adapter`): Conexión con Servicios Externos**
+
+#### 🔗 **Adaptador (`Adapter`): Conexión con Servicios Externos**
 📌 **Uso:** Convierte una interfaz existente en otra compatible con el sistema.
 
 - `AdaptadorNotificador` → adapta `APINotificaciones` para enviar mensajes.  
@@ -123,18 +131,20 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 
 ---
 
+
 ## 🏗️ **Patrones de Diseño Aplicados**
 
-### 🔹 Singleton (`GestorTurnos` y `GestorReportes`)
+### 🔁 Singleton (`GestorTurnos` y `GestorReportes`)
 **Objetivo:** Garantizar que exista una única instancia del objeto en toda la aplicación.  
 
-📌**Aplicación en el sistema TUNOMATICO:**  
+📌**Aplicación en el sistema TUNOMATICO:**
 - `GestorTurnos` centraliza la administración de turnos, evitando inconsistencias.  
 - `GestorReportes` permite la generación única de reportes, asegurando datos coherentes. 
 
 ---
 
-### 🔹 Prototype (`Turno`)
+
+### 🔁 Prototype (`Turno`)
 **Obejtivo:** Evitar la creación repetitiva de objetos costosos, permitiendo la clonación eficiente.
 
 📌 **Aplicación en el sistema TUNOMATICO**:
@@ -145,7 +155,8 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 
 ---
 
-### 🔹 Adapter (`AdaptadorNotificador` y `AdaptadorReportePDF`)
+
+### 🔁 Adapter (`AdaptadorNotificador` y `AdaptadorReportePDF`)
 **Obejtivo**: Permitir la integración de sistemas con interfaces incompatibles mediante una capa intermedia.
 
 📌 Aplicación en TUNOMATICO:
@@ -157,17 +168,24 @@ Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interact
 ---
 
 
+
 # 📌 Diagrama de Implementacion 
+
+
 
 ## 🏗️ **Arquitectura del Sistema**
 El sistema está dividido en módulos organizados en distintas capas: **Cliente**, **Servidor Web**, **Base de Datos** y **Servicios Externos**, asegurando una separación clara de responsabilidades.
 
+
 ## 📌 **Componentes Principales**
-### ✅ **Cliente** 
+
+### 👦 **Cliente** 
 Interfaz de usuario para interactuar con el sistema.
 - `Interfaz Tunomatico` → Interfaz para que los usuarios gestionen sus turnos.
 ---
-### ✅ **Servidor Web**
+
+
+### 🌐🖥 **Servidor Web**
 Centro de operaciones del sistema que gestiona la lógica y la comunicación con la base de datos.
 - `Servicio de Gestión de Turnos` → Procesa la creación, modificación y cancelación de turnos.
 - `Servicio de Gestión de Usuarios` → Administra cuentas de usuario y autenticación.
@@ -176,49 +194,40 @@ Centro de operaciones del sistema que gestiona la lógica y la comunicación con
 - `Controlador de Usuario` → Maneja la interacción entre el cliente y los servicios del sistema.
 - `Servicio de Autenticación de Usuarios` → Valida credenciales para el acceso al sistema.
 ---
-### ✅ **Administrador**
+
+
+### 👨‍💼 **Administrador**
 Módulo encargado de la supervisión y gestión del sistema de turnos.
 - `Interfaz Administrador` → para que el administrador accesa a sus permisos administrativos, para gestionar el sistema o generar un reporte. Se comunica con `GestorTurnos` para administrar turnos.
 - `Administrador` → Gestiona usuarios, turnos y reportes.
 - `Servicio de Gestión de Turnos` → Permite modificar o eliminar turnos asignados a los usuarios.
 - `GestorReportes` → Permite generar informes de gestión sobre la actividad en el sistema.
 ---
-### ✅ **Base de Datos**
+### 🛢 **Base de Datos**
 Almacena la información de usuarios, turnos y reportes.
 - `BD Usuarios` → Registra credenciales y datos de usuarios.
 - `BD Turnos` → Guarda los turnos registrados.
 - `BD Reportes` → Almacena informes generados por el sistema.
 ---
-### ✅ **Servicios Externos**
+### 🔗🔀 **Servicios Externos**
 Interfaces de terceros integradas con **TUNOMATICO** para mejorar la funcionalidad.
 - `API de Notificaciones` → Servicio externo para enviar alertas de turnos.
 - `Exportador PDF` → Biblioteca para generar reportes en formato PDF.
 
 ---
 
-## 🔗 **Relaciones Entre Componentes**
+# 🤔💡🤓☝️ Reflexiones Finales del modelado
+- El modelado de Tunomático representa un enfoque sólido en el diseño de sistemas de gestión digital de turnos, logrando una estructura clara y organizada. Se han aplicado principios fundamentales de orientación a objetos, asegurando la modularida. 
+- Los patrones de diseño utilizados: Prototype, Singleton y Adapter, que permiten escalabilidad y eficiencia operativa, elementos clave en cualquier sistema que maneje flujos de datos constantes.
+- El desarrollo y representación a través de PlantUML ha sido una decisión acertada, ya que facilita la comprensión del modelo a través de diagramas estructurados. Además, la transición desde casos de uso hasta la implementación física
+  refuerza la coherencia entre los requisitos funcionales y la arquitectura técnica.
+- Uno de los aspectos más valiosos del diseño es su versatilidad para distintos entornos, desde atención médica hasta administración municipal, demostrando su potencial para ser adaptado a necesidades reales. La incorporación de notificaciones y reportes también optimiza la experiencia del usuario y la gestión interna.
+✅En conclusión, el Tunomático no solo representa un buen ejercicio de modelado arquitectónico, sino que también sienta bases sólidas para la implementación de un sistema escalable y eficiente, alineado con buenas prácticas de desarrollo y gestión de un sistema digital.
 
-### ✅ **Interacción entre Cliente, Administrador y Servidor**
-📌 **Objetivo:** Permitir que los usuarios y administradores interactúen con el sistema.
 
-- `Interfaz Tunomatico` → se comunica con `Controlador de Usuario` para acceder a las opciones que tiene el usuario con el turno.
-- `Interfaz Administrador` → consulta `GestorTurnos` y `GestorReportes` para gestionar turnos y reportes.
 
-📌 **Ejemplo en TUNOMATICO:**  
-Un administrador accede a **TUNOMATICO**, revisa los reportes generados en el día y ajusta la planificación de turnos para la próxima jornada.
 
----
 
-### ✅ **Relación entre Servicios del Servidor Web**
-📌 **Objetivo:** Mantener modularidad en la gestión de turnos y usuarios.
-
-- `Controlador de Usuario` → usa `Servicio de Gestión de Usuarios` para manejar autenticación.
-- `Servicio de Gestión de Turnos` → usa `GestorTurnos` para registrar turnos.
-
-📌 **Ejemplo en TUNOMATICO:**  
-Cuando un administrador gestiona turnos de usuarios, **GestorTurnos** le permite visualizar la disponibilidad y realizar ajustes.
-
----
 
 
 
