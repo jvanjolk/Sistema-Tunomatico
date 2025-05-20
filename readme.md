@@ -14,7 +14,7 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 ---
 
 
-# 📌 1. Diagrama de Casos de Uso UML
+# 📌 1. Diagrama de Casos de Uso
 
 
 
@@ -25,8 +25,7 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 
 - **Usuario**: Puede registrarse, iniciar sesión y gestionar turnos.
 - **Administrador**: Tiene permisos avanzados para gestionar usuarios, turnos y reportes.
-
-
+---
 ### 🔹 Funciones del Usuario
 -  **Registrarse** y **Iniciar sesión** en la plataforma.
 -  **Registrar Turno** y  **Cancelar Turno** cuando sea necesario.
@@ -69,9 +68,15 @@ inistrador puede ingresar a gestionar uno o más usuarios cada que sea pertinent
 
 
 
-# 📌 Sistema de Gestión de Turnos **TUNOMATICO** - Relaciones en el Diagrama de Clases
+# 📌 Diagrama de Clases
 
-Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, detallando cómo interactúan las clases y por qué se han aplicado estos modelos. También se incluyen ejemplos basados en la gestión de turnos dentro del propio sistema.
+
+
+
+
+
+
+Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, cómo interactúan las clases y por qué se han aplicado estos patrones de diseño. También se incluyen ejemplos basados en la gestión de turnos dentro del propio sistema.
 
 ## 🔗 **Relaciones Entre Clases**
 
