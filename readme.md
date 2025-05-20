@@ -17,6 +17,10 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 # 📌 1. Diagrama de Casos de Uso UML
 
 
+
+
+
+
 ## 🧑‍💻 Actores Presentes en el Caso de Uso
 
 - **Usuario**: Puede registrarse, iniciar sesión y gestionar turnos.
@@ -58,4 +62,85 @@ inistrador puede ingresar a gestionar uno o más usuarios cada que sea pertinent
   -  **Gestionar Reportes**
     _(el administrador puede ingresar a gestionar uno o más reportes cada que sea pertinente o ocurra un caso especial)._
   _(El administrador puede realizar estas funciones después de autenticarse)._
+
+
+
+---
+
+
+
+# 📌 Sistema de Gestión de Turnos **TUNOMATICO** - Relaciones en el Diagrama de Clases
+
+Se detallan las **relaciones** dentro del sistema **TUNOMATICO**, detallando cómo interactúan las clases y por qué se han aplicado estos modelos. También se incluyen ejemplos basados en la gestión de turnos dentro del propio sistema.
+
+## 🔗 **Relaciones Entre Clases**
+
+### ✅ **Asociación: Relación Directa Entre Entidades**
+📌 **Uso:** Modela la interacción natural entre dos clases sin dependencia rígida.
+
+- `Usuario` → tiene múltiples **Turno**  
+  - **Ejemplo en TUNOMATICO:** Un usuario del sistema reserva varios turnos para distintos servicios, como atención médica o asesoría legal.  
+- `Usuario` → usa `GestorTurnos` para registrar y cancelar turnos.  
+  - **Ejemplo en TUNOMATICO:** Un cliente programa una cita en una sucursal del sistema y posteriormente la cancela si ya no puede asistir.  
+- `Administrador` → usa `GestorTurnos` y `GestorReportes` para gestionar turnos y reportes.  
+  - **Ejemplo en TUNOMATICO:** Un administrador revisa todos los turnos asignados en un día y genera un informe de asistencia para la jornada.
+
+---
+
+### ✅ **Dependencia: Una Clase Usa a Otra Como Función**
+📌 **Uso:** Una clase necesita otra para realizar una tarea, pero no es propietaria de ella.
+
+- `GestorTurnos` → depende de `Turno` para gestionar la asignación de turnos.  
+  - **Ejemplo en TUNOMATICO:** Cada turno registrado por un usuario se gestiona dentro del sistema, permitiendo visualizar disponibilidad y horarios.  
+- `GestorReportes` → depende de `Reporte` para generar documentos detallados.  
+  - **Ejemplo en TUNOMATICO:** Se genera un reporte mensual que muestra la cantidad de turnos atendidos y las tasas de cancelación.
+
+---
+
+### ✅ **Uso de Interfaces (`Notificador`, `ExportadorReporte`)**
+📌 **Uso:** Permite desacoplar las implementaciones concretas y hacerlas intercambiables.
+
+- `GestorTurnos` → usa `Notificador` para enviar alertas a los usuarios sobre sus turnos.  
+  - **Ejemplo en TUNOMATICO:** Cuando un usuario agenda un turno, recibe una notificación por correo o SMS recordándole la fecha y hora.  
+- `GestorReportes` → usa `ExportadorReporte` para generar informes en distintos formatos.  
+  - **Ejemplo en TUNOMATICO:** Un administrador descarga un informe en PDF con el detalle de los turnos atendidos durante el mes.
+
+---
+
+### ✅ **Adaptador (`Adapter`): Conexión con Servicios Externos**
+📌 **Uso:** Convierte una interfaz existente en otra compatible con el sistema.
+
+- `AdaptadorNotificador` → adapta `APINotificaciones` para enviar mensajes.  
+  - **Ejemplo en TUNOMATICO:** El sistema se integra con WhatsApp para enviar confirmaciones de turno a los clientes.  
+- `AdaptadorReportePDF` → adapta `ExportadorReporte` para generar documentos PDF.  
+  - **Ejemplo en TUNOMATICO:** Un administrador genera un reporte de turnos en PDF y lo comparte con el equipo de planificación.
+
+---
+
+## 🎯 **Patrones de Diseño Aplicados en la Gestión de Turnos**
+Estos patrones optimizan la estructura del sistema y mejoran la modularidad.
+
+### ✅ **Singleton**
+📌 **Uso:** Garantiza que haya una única instancia de `GestorTurnos` y `GestorReportes`.
+
+📌 **Ejemplo en TUNOMATICO:**  
+El sistema tiene un único **Gestor de Turnos**, centralizando todas las reservas en una sola instancia para evitar conflictos de horarios y duplicaciones en los turnos.
+
+---
+
+### ✅ **Prototype**
+📌 **Uso:** Permite la clonación de objetos `Turno`.
+
+📌 **Ejemplo en TUNOMATICO:**  
+Cuando un usuario reserva un turno similar a uno anterior (por ejemplo, misma categoría de servicio en distinto día), el sistema clona el turno previo en lugar de crear uno desde cero.
+
+---
+
+### ✅ **Adapter**
+📌 **Uso:** Convierte una interfaz de un servicio externo para que se integre con el sistema.
+
+📌 **Ejemplo en TUNOMATICO:**  
+El sistema se adapta a una API de notificaciones que permite enviar recordatorios de turnos programados, asegurando que los clientes no olviden sus citas.
+
+---
 
