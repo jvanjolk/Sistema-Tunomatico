@@ -27,7 +27,7 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 -  **Registrarse** y **Iniciar sesión** en la plataforma.
 -  **Registrar Turno** y  **Cancelar Turno** cuando sea necesario.
 -  **Consultar Turno** para obtener información detallada.
--  **Recibir Notificación de Turno** cuando se registra o cancela un turno.
+-  **Notificación de Turno** cuando se registra o cancela un turno.
 
 ### 🔹 Funciones del Administrador
 -  **Acceso Administrativo**, desde donde puede:
@@ -51,7 +51,8 @@ Cuando una acción requiere otra para completarse:
 Cuando una funcionalidad se habilita bajo ciertas condiciones:
 -  **Acceso Administrativo** → extiende:
   -  **Gestionar Usuarios**
-    _(el administrador puede ingresar a gestionar uno o más usuarios cada que sea pertinente o ocurra un caso especial)._
+    _(el adm
+inistrador puede ingresar a gestionar uno o más usuarios cada que sea pertinente o ocurra un caso especial)._
   -  **Gestionar Turnos**
     _(el administrador puede ingresar a gestionar uno o más turnos cada que sea pertinente o ocurra un caso especial)._
   -  **Gestionar Reportes**
