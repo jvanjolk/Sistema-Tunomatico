@@ -79,7 +79,7 @@ Cuando una funcionalidad se habilita bajo ciertas condiciones:
 
 
 
-
+![diagrama de clases](https://github.com/jvanjolk/Sistema-Tunomatico/blob/main/diagrama_clases.png)
 
 
 
