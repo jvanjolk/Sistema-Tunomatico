@@ -14,4 +14,4 @@ Añadiendo a lo anterior, los diagramas de clases, implementacion y caso de uso,
 ---
 
 
-### 🔹 1. Diagrama de Casos de Uso UML
+# 🔹 1. Diagrama de Casos de Uso UML
