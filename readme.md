@@ -17,8 +17,7 @@ Ademas, cabe recalcar que este Sistema fue diseñado para variables casos para u
 
 # 📌 1. Diagrama de Casos de Uso
 
-![casos de uso](Sistema-Tunomatico/diagrama_casodeuso.png)
-
+![casos de uso](https://github.com/jvanjolk/Sistema-Tunomatico/blob/main/diagrama_casodeuso.png)
 
 
 
