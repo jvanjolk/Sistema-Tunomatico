@@ -49,7 +49,7 @@ Cuando una acción requiere otra para completarse:
 
 ### ✅ **`<<extend>>`** 
 Cuando una funcionalidad se habilita bajo ciertas condiciones:
--  ` **Acceso Administrativo** → extiende:
+-  **Acceso Administrativo** → extiende:
   -  **Gestionar Usuarios**
     _(el administrador puede ingresar a gestionar uno o más usuarios cada que sea pertinente o ocurra un caso especial)._
   -  **Gestionar Turnos**
