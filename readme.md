@@ -223,7 +223,7 @@ Interfaces de terceros integradas con **TUNOMATICO** para mejorar la funcionalid
 - El desarrollo y representación a través de PlantUML ha sido una decisión acertada, ya que facilita la comprensión del modelo a través de diagramas estructurados. Además, la transición desde casos de uso hasta la implementación física
   refuerza la coherencia entre los requisitos funcionales y la arquitectura técnica.
 - Uno de los aspectos más valiosos del diseño es su versatilidad para distintos entornos, desde atención médica hasta administración municipal, demostrando su potencial para ser adaptado a necesidades reales. La incorporación de notificaciones y reportes también optimiza la experiencia del usuario y la gestión interna.
-✅En conclusión, el Tunomático no solo representa un buen ejercicio de modelado arquitectónico, sino que también sienta bases sólidas para la implementación de un sistema escalable y eficiente, alineado con buenas prácticas de desarrollo y gestión de un sistema digital.
+- ✅En conclusión, el Tunomático no solo representa un buen ejercicio de modelado arquitectónico, sino que también sienta bases sólidas para la implementación de un sistema escalable y eficiente, alineado con buenas prácticas de desarrollo y gestión de un sistema digital.
 
 
 
